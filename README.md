@@ -1,2 +1,2 @@
-# personal-developer-plan
+# Personal developer plan
 PDP to increase the level of seniority
