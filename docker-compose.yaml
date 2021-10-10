@@ -29,6 +29,8 @@ services:
       - "9000:9000"
     volumes:
       - ./app:/app
+    links:
+      - mysql-service
     networks:
       - pdp
 
@@ -44,8 +46,9 @@ services:
     restart: always
     environment:
       MYSQL_USER: root
-      MYSQL_PASSWORD:
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: pdp
     networks:
       - pdp
 
