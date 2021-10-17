@@ -1,8 +1,5 @@
 version: '3'
 
-networks:
-  pdp:
-
 services:
   # nginx
   nginx-service:
@@ -60,5 +57,10 @@ services:
       ports:
         - "6379:6379"
       volumes:
-        - /dockerfiles/redis:/data
+        - ./dockerfiles/redis:/data
       command: redis-server --appendonly yes
+      networks:
+        - pdp
+
+networks:
+  pdp:
