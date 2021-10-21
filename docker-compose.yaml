@@ -19,8 +19,8 @@ services:
   # php
   php7.4-service:
     build:
-      context: .
-      dockerfile: ./dockerfiles/php/Dockerfile
+      context: ./dockerfiles/php
+      dockerfile: Dockerfile
     container_name: php-container
     ports:
       - "9000:9000"

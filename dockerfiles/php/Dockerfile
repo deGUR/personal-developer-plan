@@ -17,10 +17,15 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd
 
 WORKDIR /app
-COPY ./app /app
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer  \
     && php /usr/local/bin/composer self-update
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+
+COPY entrypoin.sh /usr/local/bin/entrypoin.sh
+
+RUN chmod a+x /usr/local/bin/entrypoin.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoin.sh"]
