@@ -19,6 +19,7 @@ services:
   php7.4-service:
     build:
       context: ./dockerfiles/php/
+      dockerfile: Dockerfile
     container_name: php-container-web
     ports:
       - "9001:9000"
@@ -33,7 +34,7 @@ services:
       container_name: redis-container-web
       restart: always
       ports:
-        - "6382:6379"
+        - "6379:6379"
       volumes:
         - ./dockerfiles/redis:/data
       command: redis-server --appendonly yes
